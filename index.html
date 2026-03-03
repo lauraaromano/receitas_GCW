@@ -5,28 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hamburguer</title>
 
-  <!-- Fonte Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV -->
   <header class="navbar">
     <div class="logo">Hambuguer</div>
     <nav>
-      <a href="#" class="active">Início</a>
-      <a href="#">Cardápio</a>
-      <a href="#">Promoções</a>
-      <a href="#">Carrinho</a>
+      <a href="#">Início</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#promocoes">Promoções</a>
+      <a href="#carrinho">Carrinho</a>
     </nav>
   </header>
 
-  <!-- CARD ABAIXO DA NAV -->
-  <section class="card">
+  <main class="card">
     <div class="left">
-      <img src="img/image 1.png" alt="Hambúrguer">
+      <img src="img/image 1.png" alt="Hambúrguer Destaque">
     </div>
 
     <div class="right">
@@ -37,18 +33,126 @@
       </h1>
 
       <p>
-        Pão artesanal macio por dentro e levemente crocante por fora, carne suculenta preparada no ponto certo e ingredientes cuidadosamente selecionados para garantir qualidade e frescor em cada detalhe.
-
-        Cada mordida é uma verdadeira explosão de sabor, combinando texturas e aromas que despertam os sentidos. O equilíbrio perfeito entre crocância, suculência e o nosso molho especial exclusivo transforma cada lanche em uma experiência única e irresistível.
-        
-        Descubra o prazer de saborear um hambúrguer feito com paixão, onde cada ingrediente tem o seu papel para criar uma combinação harmoniosa e marcante.
+       Pão artesanal, carne suculenta e ingredientes selecionados. Cada mordida é uma explosão de sabor. 
+        Experimente o equilíbrio perfeito entre crocância, suculência e aquele molho especial que você só encontra aqui.
       </p>
 
-      <button>Ver Cardápio</button>
+      <button>
+        <a href="#cardapio">Ver Cardápio</a></button>
+    </div>
+  </main>
+
+  <section class="card-pesquisa">
+
+        <div class="titulo-carrinho">
+      
+      <h2 id="cardapio">Cardápio</h2>
     </div>
 
-    
+    <div class="container-grid">
+      
+      <div class="menu-lado-esquerdo">
+        <div class="busca-container">
+          <input type="text" placeholder="Pesquisar Receita">
+          <button class="btn-busca"></button>
+        </div>
+
+        <div class="burger-grid">
+          <div class="item-burger">
+            <img src="img/brutalburger.png" alt="Brutal Burger">
+            <h3>Brutal Burger</h3>
+            <span class="preco">R$ 28,99</span>
+            <button class="btn-carrinho">Adicionar no carrinho</button>
+          </div>
+          <div class="item-burger">
+            <img src="img/insano.png" alt="Insano Smash">
+            <h3>Insano Smash</h3>
+            <span class="preco">R$ 23,99</span>
+            <button class="btn-carrinho">Adicionar no carrinho</button>
+          </div>
+          <div class="item-burger">
+            <img src="img/mostro.png" alt="Monstro da Casa">
+            <h3>Monstro da Casa</h3>
+            <span class="preco">R$ 29,99</span>
+            <button class="btn-carrinho">Adicionar no carrinho</button>
+          </div>
+          <div class="item-burger">
+            <img src="img/fomezero.png" alt="Fome Zero">
+            <h3>Fome Zero</h3>
+            <span class="preco">R$ 15,00</span>
+            <button class="btn-carrinho">Adicionar no carrinho</button>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="img-burger-destaque">
+        <img src="img/burguer_grande.png" alt="Hambúrguer Explodido">
+      </div>
+
+    </div>
   </section>
+
+  <section class="promocoes-section">
+    <div class="promocoes-container">
+      <h2  id="promocoes">Promoções</h2>
+      <p class="subtitulo">Confira as promoções da semana com preços incríveis</p>
+
+      <div class="promocoes-grid">
+        <div class="card-promo">
+          <img src="img/fomezero.png" alt="Fome Zero">
+          <h3>Fome Zero</h3>
+          <span class="preco-promo">R$ 15,00</span>
+          <button class="btn-promo-add">Adicionar no carrinho</button>
+        </div>
+        <div class="card-promo">
+          <img src="img/mostro.png" alt="Fome Zero">
+          <h3>Monstro da Casa</h3>
+          <span class="preco-promo">R$ 29,99</span>
+          <button class="btn-promo-add">Adicionar no carrinho</button>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="carrinho-section" id="carrinho">
+    <div class="titulo-carrinho">
+      
+      <h2 id="carrinho">Carrinho</h2>
+    </div>
+
+    <div class="meu-pedido-container">
+      <h3>Meu Pedido</h3>
+      
+      <div class="lista-pedido">
+        <div class="item-pedido">
+          <div class="numero-item">1</div>
+          <div class="nome-item">Mordida Fatal</div>
+          <div class="valor-item">R$ 28,99</div>
+        </div>
+
+        <div class="item-pedido">
+          <div class="numero-item">2</div>
+          <div class="nome-item">Monstro da Casa</div>
+          <div class="valor-item">R$ 29,99</div>
+        </div>
+      </div>
+
+      <div class="total-pedido">
+        <span>Valor Total:</span>
+        <div class="box-total">R$ 58,98</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-simples">
+    <div class="footer-content">
+        <p>&copy; 2024 - Laura Romano</p>
+    </div>
+</footer>
 
 </body>
 </html>

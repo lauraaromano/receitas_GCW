@@ -1,107 +1,547 @@
+html {
+  scroll-behavior: smooth;
+}
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f1e7df; /* Cor de fundo suave */
+}
+
+/* NAVBAR */
+.navbar {
+  height: 80px;
+  background-color: #f7e7da;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que a nav fique por cima de tudo */
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  margin-left: 40px;
+  font-size: 14px;
+  position: relative;
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+nav a {
+  text-decoration: none;
+  color: #000;
+  margin-left: 40px;
+  font-size: 14px;
+  position: relative; /* Necessário para posicionar o traço em relação ao texto */
+  padding-bottom: 5px; /* Espaço entre o texto e o traço */
+}
+
+/* Criando o traço */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Começa com largura zero para o efeito de animação */
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease; /* Faz o traço "crescer" suavemente */
+}
+
+/* Quando o link estiver com a classe 'active' ou quando passar o mouse */
+nav a.active::after,
+nav a:hover::after {
+  width: 100%; /* O traço preenche toda a largura do texto */
+}
+
+/* CARD HERO (O QUE JÁ EXISTIA) */
+.card {
+  margin: 60px auto;
+  width: 95%;
+  max-width: 1400px;
+  background-color: #f2d5bd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 80px;
+  border-radius: 20px;
+  gap: 40px;
+}
+
+.left img {
+  width: 240px;
+}
+
+.right {
+  flex: 2;
+}
+
+.right h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.right p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.right button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* .right button:hover {
+  background-color: #000;
+  color: #fff;
+} */
+
+/* --- NOVA SEÇÃO DE PESQUISA E GRID --- */
+
+.card-pesquisa {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto 60px;
+}
+
+.container-grid {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.menu-lado-esquerdo {
+  flex: 3;
+}
+
+/* Barra de Busca */
+.busca-container {
+  background-color: #f2d5bd;
+  padding: 15px 30px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.busca-container input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 90%;
+}
+
+.btn-busca {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Grid de Produtos */
+.burger-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.item-burger {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.item-burger:hover {
+  transform: translateY(-5px);
+}
+
+.item-burger img {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.item-burger h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.preco {
+  display: block;
+  background-color: #e0e0e0;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 auto 15px;
+  width: fit-content;
+}
+
+.btn-carrinho {
+  width: 100%;
+  background-color: #d9d9d9;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s;
+}
+
+.btn-carrinho:hover {
+  background-color: #ccc;
+}
+
+/* Imagem Grande à Direita */
+.img-burger-destaque {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+}
+
+.img-burger-destaque img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* Responsividade Básica */
+@media (max-width: 992px) {
+  .container-grid {
+    flex-direction: column;
   }
-  
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #e5e5e5;
+  .img-burger-destaque {
+    order: -1;
+    margin-bottom: 40px;
   }
-  
-  /* NAVBAR */
-  
-  .navbar {
-    height: 80px;
-    background-color: #e7d7c6;
+}
+
+/* --- SEÇÃO PROMOÇÕES --- */
+
+.promocoes-section {
+  width: 95%;
+  max-width: 1400px;
+  margin: 40px auto 80px;
+}
+
+.promocoes-container {
+  background-color: #ffffff; /* Fundo branco do card principal */
+  border-radius: 40px;
+  padding: 60px 80px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.promocoes-container h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.promocoes-container .subtitulo {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.promocoes-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.card-promo {
+  background-color: #d9d9d9; /* Fundo cinza dos cards internos */
+  width: 250px;
+  padding: 30px 20px;
+  border-radius: 35px;
+  text-align: center;
+}
+
+.card-promo img {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.card-promo h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.preco-promo {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.btn-promo-add {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.btn-promo-add:hover {
+  background-color: #f0f0f0;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  .promocoes-container {
+    padding: 30px;
+  }
+  .promocoes-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* --- ESTILOS: PROMOÇÕES --- */
+.promocoes-section {
+  width: 95%;
+  max-width: 1400px;
+  margin: 40px auto;
+}
+
+.promocoes-container {
+  background-color: #ffffff;
+  border-radius: 40px;
+  padding: 50px 80px;
+}
+
+.promocoes-container h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.promocoes-container .subtitulo {
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.promocoes-grid {
+  display: flex;
+  gap: 25px;
+}
+
+.card-promo {
+  background-color: #d9d9d9; /* Cor cinza dos cards internos */
+  padding: 30px 20px;
+  border-radius: 30px;
+  text-align: center;
+  width: 240px;
+}
+
+.card-promo img {
+  width: 140px;
+  margin-bottom: 15px;
+}
+
+.card-promo h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.preco-unitario {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.btn-promo-add {
+  background-color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* --- ESTILOS: CARRINHO --- */
+.carrinho-section {
+  width: 95%;
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 40px;
+}
+
+.titulo-carrinho {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.titulo-carrinho h2 {
+  font-size: 28px;
+}
+
+.meu-pedido-container {
+  background-color: #fcdbbd; /* Cor bege do fundo do pedido */
+  border-radius: 40px;
+  padding: 40px 60px;
+}
+
+.meu-pedido-container h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.lista-pedido {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.item-pedido {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.numero-item {
+  background-color: #ffffff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nome-item {
+  background-color: #f5f5f5;
+  flex: 1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.valor-item {
+  background-color: #f5f5f5;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.total-pedido {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.box-total {
+  background-color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 8px;
+}
+
+/* --- FOOTER BEM SIMPLES --- */
+.footer-simples {
+    background-color: #e7d7c6; /* Cor da sua Nav */
+    padding: 30px 0;
+    margin-top: 50px;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.footer-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 0 80px;
-  }
-  
-  .logo {
-    font-weight: 600;
-    font-size: 18px;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #000;
-    margin-left: 40px;
-    font-size: 14px;
-    position: relative;
-  }
-  
-  nav a.active::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #000;
-  }
-  
-  /* CARD */
-  
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f1e7df;
-  }
-  
-  /* CARD NOVO */
-  .card {
-    margin: 60px auto;
-    width: 95%;
-    max-width: 1400px;
-    background-color: #f2d5bd;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px 80px;
-    border-radius: 20px;
-    gap: 40px; /* espaço entre imagem e texto */
-  }
-  
-  .left {
-    flex: 1; /* ocupa menos espaço */
-  }
-  
-  .left img {
-    width: 240px; /* menor que antes */
-  }
-  
-  /* texto */
-  .right {
-    flex: 2; /* ocupa o dobro do espaço da imagem */
-    max-width: none; /* remove limitação anterior */
-  }
-  
-  .right h1 {
-    font-size: 28px;
+    gap: 15px;
+}
+
+.logo-footer {
     font-weight: 700;
-    margin-bottom: 15px;
-    line-height: 1.3;
-  }
-  
-  .right p {
-    font-size: 14px;
+    font-size: 18px;
+    color: #000;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
     color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .right button {
-    padding: 10px 24px;
-    border: none;
-    border-radius: 8px;
-    background-color: #fff;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
     transition: 0.3s;
-  }
-  
-  .right button:hover {
-    background-color: #000;
-    color: #fff;
-  }
+}
+
+.footer-links a:hover {
+    color: #000;
+}
+
+.footer-content p {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: #333; /* Cor escura suave */
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
