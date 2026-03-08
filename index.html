@@ -153,6 +153,21 @@
         <p>&copy; 2024 - Laura Romano</p>
     </div>
 </footer>
+<script>
+  // Seleciona os elementos
+  const navArea = document.querySelector('.navbar nav');
+  const header = document.querySelector('.navbar');
 
+  // Adiciona o evento de clique
+  navArea.addEventListener('click', function(event) {
+    // Se clicou em um link, o menu fecha (opcional, mas bom para usabilidade)
+    if (event.target.tagName === 'A') {
+        header.classList.remove('menu-aberto');
+    } else {
+        // Se clicou no botão/nav, alterna o menu
+        header.classList.toggle('menu-aberto');
+    }
+  });
+</script>
 </body>
 </html>

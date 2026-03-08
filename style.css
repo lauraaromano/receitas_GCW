@@ -545,3 +545,77 @@ a {
     transition: color 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    /* --- CONFIGURAÇÃO DA NAVBAR (PAI) --- */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #fff;
+        position: relative;
+        z-index: 1000;
+        flex-wrap: wrap; /* Permite que o menu desça para a linha de baixo */
+    }
+
+    /* --- O BOTÃO HAMBÚRGUER (NAV) --- */
+    .navbar nav {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        order: 2; /* Garante que o ícone fique na direita */
+    }
+
+    /* Os 3 traços */
+    .navbar nav::before {
+        content: "";
+        position: absolute;
+        top: 8px; /* Centraliza verticalmente */
+        right: 0;
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        box-shadow: 0 -8px 0 #333, 0 8px 0 #333;
+        transition: 0.3s;
+    }
+
+    /* Esconde os links por padrão */
+    .navbar nav a {
+        display: none;
+    }
+
+    /* --- ESTADO ABERTO (MENU ATIVO) --- */
+    
+    .navbar.menu-aberto {
+        height: auto;
+    }
+
+    /* Quando aberto, os links ocupam a largura total abaixo do logo */
+    .navbar.menu-aberto nav {
+        width: 100%;
+        height: auto;
+        order: 3; /* Move a lista para baixo da logo e do ícone */
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar.menu-aberto nav a {
+        display: block;
+        padding: 15px 0;
+        width: 100%;
+        border-bottom: 1px solid #f1f1f1;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Reposiciona o ícone para não sumir quando abrir */
+    .navbar.menu-aberto nav::before {
+        top: -35px; /* Sobe o ícone de volta para a linha da logo */
+        right: 0;
+        width: 30px;
+    }
+}
