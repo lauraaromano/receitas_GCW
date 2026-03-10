@@ -619,3 +619,16 @@ a {
         width: 30px;
     }
 }
+
+@media (max-width: 768px) {
+  .card {
+      flex-direction: column; /* Faz o texto ficar embaixo da imagem no celular */
+      text-align: center;
+      padding: 30px 20px;
+  }
+  
+  .left img {
+      width: 100%; /* A imagem ocupa a largura disponível no celular */
+      max-width: 200px; /* Mas não passa de 200px para não ficar gigante */
+  }
+}
